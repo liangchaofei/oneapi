@@ -1,0 +1,42 @@
+{
+	"name": "fe",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"postinstall": "pnpm run husky:prepare",
+		"prettier": "prettier --loglevel warn --write '**/*.{ts,tsx,js,jsx,json,md}'",
+		"biome:format": "biome format --write .",
+		"husky:prepare": "husky install",
+		"husky:pre-commit": "lint-staged",
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"*.{ts,tsx,js,jsx}": ["biome format --write", "npm run prettier"],
+		"*.{json,less,md}": "prettier --ignore-unknown --write"
+	},
+	"dependencies": {
+		"axios": "^1.7.7",
+		"next": "15.0.1",
+		"react": "19.0.0-rc-69d4b800-20241021",
+		"react-dom": "19.0.0-rc-69d4b800-20241021",
+		"zustand": "^5.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@commitlint/cli": "^19.5.0",
+		"@commitlint/config-conventional": "^19.5.0",
+		"@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"husky": "^9.1.6",
+		"lint-staged": "^15.2.10",
+		"postcss": "^8",
+		"prettier": "^3.3.3",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5"
+	}
+}
